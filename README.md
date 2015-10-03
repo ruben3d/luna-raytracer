@@ -2,6 +2,12 @@
 
 Luna Raytracer is a simple multi-threaded C++ ray tracing library. It provides the basic building blocks for rendering simple scenes and hooks for extending its capabilites.
 
+## Table of Contents
+
+1. [Project structure](#project-structure)
+2. [Build](#build)
+3. [License](#license)
+
 ## Project structure
 
 The layout of the project is as follows:
