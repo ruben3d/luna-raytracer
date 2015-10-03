@@ -4,9 +4,47 @@ Luna Raytracer is a simple multi-threaded C++ ray tracing library. It provides t
 
 ## Table of Contents
 
-1. [Project structure](#project-structure)
-2. [Build](#build)
-3. [License](#license)
+1. [Features](#features)
+2. [Project structure](#project-structure)
+3. [Build](#build)
+4. [License](#license)
+
+## Features
+
+This is a list of the features currently provided by the library:
+
+* General
+  * Multiplatform.
+  * Stochastic algorithm.
+  * Designed for 64 bits platforms.
+  * Multi-threaded core.
+  * Listener-based progress notification.
+* Rendering
+  * 64 bits HDR color pipeline.
+  * Quasi-Monte Carlo supersampling antialiasing.
+  * Bucket rendering.
+  * Gamma correction.
+* Geometry
+  * Mathematic entities: plane, disc, esphere.
+  * Triangles and triangle meshes.
+  * Model instancing.
+* Lighting
+  * Point light.
+  * Area lights: sphere and disc.
+  * Skylight.
+  * Adaptive sampling using low-discrepancy sequences.
+  * Light attenuation.
+* Materials
+  * Phong shading.
+  * Glossy surfaces.
+  * Reflection.
+  * Refraction with light absorption.
+* Cameras
+  * Pinhole camera.
+  * Real depth of field camera.
+* Input/Output
+  * PNG image saving.
+  * ASC model loader.
 
 ## Project structure
 
