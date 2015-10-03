@@ -7,7 +7,8 @@ Luna Raytracer is a simple multi-threaded C++ ray tracing library. It provides t
 1. [Features](#features)
 2. [Project structure](#project-structure)
 3. [Build](#build)
-4. [License](#license)
+4. [Examples](#examples)
+5. [License](#license)
 
 ## Features
 
@@ -70,6 +71,13 @@ The source code folder is divided into these additional folders:
 
 The project uses a GNU Make based custom build system and some libraries for platform-independent operation.
 
+#### Quickstart
+
+Eager to see the project in action? Enter the `prj/gcc` folder from the console and execute this command:
+```
+/home/user/raytracer/prj/gcc$ ARCH=x86_64 PROFILE=release make bin
+```
+
 #### Dependencies
 
 The project has three library dependencies:
@@ -102,6 +110,32 @@ The complete list of available targets for the Make-based building system is:
 * `make doc`- Runs Doxygen.
 * `make docclean`- Deletes the Doxygen-generated documentation.
 * `make bin`- Runs the executable file from the `bin` folder using the `data` folder as working folder.
+
+## Examples
+
+#### Basic example
+
+[<img src="https://raw.githubusercontent.com/ruben3d/luna-raytracer/master/doc/basicExample.png" width="320" height="240" />](https://raw.githubusercontent.com/ruben3d/luna-raytracer/master/doc/basicExample.png)
+
+#### Glossy surface example
+
+[<img src="https://raw.githubusercontent.com/ruben3d/luna-raytracer/master/doc/glossyExample.png" width="320" height="240" />](https://raw.githubusercontent.com/ruben3d/luna-raytracer/master/doc/glossyExample.png)
+
+#### SkyLight example
+
+[<img src="https://raw.githubusercontent.com/ruben3d/luna-raytracer/master/doc/skyLightExample.png" width="320" height="240" />](https://raw.githubusercontent.com/ruben3d/luna-raytracer/master/doc/skyLightExample.png)
+
+#### Area light example
+
+[<img src="https://raw.githubusercontent.com/ruben3d/luna-raytracer/master/doc/areaLightExample.png" width="320" height="240" />](https://raw.githubusercontent.com/ruben3d/luna-raytracer/master/doc/areaLightExample.png)
+
+#### Real camera example
+
+[<img src="https://raw.githubusercontent.com/ruben3d/luna-raytracer/master/doc/lensCameraExample.png" width="320" height="240" />](https://raw.githubusercontent.com/ruben3d/luna-raytracer/master/doc/lensCameraExample.png)
+
+#### Glass model example
+
+[<img src="https://raw.githubusercontent.com/ruben3d/luna-raytracer/master/doc/glassModelExample.png" width="320" height="240" />](https://raw.githubusercontent.com/ruben3d/luna-raytracer/master/doc/glassModelExample.png)
 
 ## License
 
