@@ -50,7 +50,7 @@ Scene& LensCameraExample::createScene(Scene& scene, const double aspectRatio)
 
 	scene.addElement(new Object(Transform::Translate(0,0,-1), GeoPtr(new Plane()), "white"));
 
-	for (int i=0; i<8; i++)
+	for (int i=-4; i<8; i++)
 	{
 		scene.addElement(new Object(Transform::Translate(2, i*8, 1), GeoPtr(new Sphere(2)), "white"));
 		scene.addElement(new Object(Transform::Translate(-2, i*8+4, 1), GeoPtr(new Sphere(2)), "black"));
@@ -81,8 +81,9 @@ Scene& LensCameraExample::createMaterials(Scene& scene)
 
 	mat = new Material("black", Color(0.0,0.0,0.0));
 	mat->setReflection(true);
-	mat->setSpecularIntensity(0.1);
+	mat->setSpecularIntensity(0.2);
 	mat->setSpecularGlossiness(256);
+	mat->setIOR(1.1);
 	scene.addElement(mat);
 
 	mat = NULL;

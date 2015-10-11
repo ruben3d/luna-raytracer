@@ -62,14 +62,7 @@ private:
 	Color computeGlossyReflection(const Vector& V, const Point& P, const Vector& N,
 								  const double roughness, const unsigned int samples, const unsigned int recursion);
 
-
-	/// \param N	Surface normal.
-	/// \param I	Incoming ray.
-	/// \param n1	Incoming medium index of refraction.
-	/// \param n2	Outgoing medium index of refraction.
-	/// \param T	Outgoing refracted ray.
-	/// \return		\b true if there is no total internal reflection.
-	bool refract(const Vector& N, const Vector& I, const double n1, const double n2, Vector& T) const;
+	double computeFresnelReflectance(const Vector& V, const Vector& N, const double ni, const double nt);
 
 	Color computeRefraction(const Vector& V, const Point& P, const Vector& N, const double ior1, const double ior2,
 							const unsigned int recursion);

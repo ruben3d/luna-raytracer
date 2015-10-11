@@ -187,10 +187,28 @@ Color Raytracer::traceRay(const Ray& ray, const unsigned int recursion, double& 
 
 	color += Ia * Ka * Ca;
 	color += sum;
-	color += Ir * material->getSpecularIntensity() /* Ks */;
-	color += It * 0.8 /* Kt */;// TODO
+	const double fresnel = computeFresnelReflectance(V, N, 1.0, material->getIOR());
+	color += Ir * fresnel *material->getSpecularIntensity() /* Ks */;
+	color += It * (1.0-fresnel) /* Kt */;
 
 	return color;
+}
+
+double Raytracer::computeFresnelReflectance(const Vector& V, const Vector& N, const double ni, const double nt)
+{
+	Vector T;
+	if ((-V).refract(N, ni, nt, T))
+	{
+		const double cosi = V.dot(N);
+		const double cost = T.dot(-N);
+		const double parallel = (nt * cosi - ni * cost) / (nt * cosi + ni * cost);
+		const double perpendicular = (ni * cosi - nt * cost) / (ni * cosi + nt * cost);
+		return (parallel*parallel + perpendicular*perpendicular) / 2.0;
+	}
+	else
+	{
+		return 1.0;
+	}
 }
 
 // The input ray and output normal are in world coordinates

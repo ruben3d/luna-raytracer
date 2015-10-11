@@ -49,11 +49,13 @@ Scene& GlossyExample::createScene(Scene& scene, const double aspectRatio)
 
 	scene.addElement(new Object(Transform::Translate(0,0,-1), GeoPtr(new Plane()), "glossy"));
 
- 	scene.addElement(new Object(Transform::Translate(-5.5, 14, 1), GeoPtr(new Sphere(2)), "rmirror"));
+	scene.addElement(new Object(Transform::Translate(-10, 16, 1), GeoPtr(new Sphere(2)), "blackmirror"));
+	scene.addElement(new Object(Transform::Translate(-5.5, 14, 1), GeoPtr(new Sphere(2)), "rmirror"));
 	scene.addElement(new Object(Transform::Translate(-1, 12, 1), GeoPtr(new Sphere(2)), "gmirror"));
- 	scene.addElement(new Object(Transform::Translate( 5, 11, 1), GeoPtr(new Sphere(2)), "bmirror"));
+	scene.addElement(new Object(Transform::Translate( 3, 16, 1), GeoPtr(new Sphere(2)), "glossymirror"));
+	scene.addElement(new Object(Transform::Translate( 5, 11, 1), GeoPtr(new Sphere(2)), "bmirror"));
 
- 	scene.addElement(new PointLight(Transform::Translate(-6,0,7), 8, Color(1,1,1), PointLight::ATT_LINEAR));
+	scene.addElement(new PointLight(Transform::Translate(-6,0,7), 8, Color(1,1,1), PointLight::ATT_LINEAR));
 
 	return scene;
 }
@@ -66,32 +68,50 @@ Scene& GlossyExample::createMaterials(Scene& scene)
 
 	mat = new Material("rmirror", Color(0.15,0,0));
 	mat->setReflection(true);
-	mat->setSpecularIntensity(0.9);
-	mat->setReflection(true);
+	mat->setSpecularIntensity(1.0);
 	mat->setSpecularGlossiness(64);
+	mat->setIOR(1.01);
 	scene.addElement(mat);
 
 	mat = new Material("gmirror", Color(0,0.15,0));
 	mat->setReflection(true);
-	mat->setSpecularIntensity(0.9);
-	mat->setReflection(true);
+	mat->setSpecularIntensity(1.0);
 	mat->setSpecularGlossiness(64);
+	mat->setIOR(2);
 	scene.addElement(mat);
 
 	mat = new Material("bmirror", Color(0,0,0.15));
 	mat->setReflection(true);
-	mat->setSpecularIntensity(0.9);
-	mat->setReflection(true);
+	mat->setSpecularIntensity(1.0);
 	mat->setSpecularGlossiness(64);
+	mat->setIOR(10.0);
+	scene.addElement(mat);
+
+	mat = new Material("blackmirror", Color(0,0,0));
+	mat->setReflection(true);
+	mat->setSpecularIntensity(0.5);
+	mat->setSpecularGlossiness(64);
+	mat->setIOR(1.0);
+	scene.addElement(mat);
+	
+	mat = new Material("glossymirror", Color(0,0,0));
+	mat->setReflection(true);
+	mat->setSpecularIntensity(1.0);
+	mat->setSpecularGlossiness(64);
+	mat->setGlossy(true);
+	mat->setGlossyRoughness(0.4);
+	mat->setGlossySamples(8);
+	mat->setIOR(4.0);
 	scene.addElement(mat);
 
 	mat = new Material("glossy", Color(0.0,0.0,0.0));
 	mat->setReflection(true);
-	mat->setSpecularIntensity(0.6);
+	mat->setSpecularIntensity(1.0);
 	mat->setSpecularGlossiness(64);
 	mat->setGlossy(true);
 	mat->setGlossyRoughness(0.1);
 	mat->setGlossySamples(8);
+	mat->setIOR(10);
 	scene.addElement(mat);
 
 	mat = NULL;
