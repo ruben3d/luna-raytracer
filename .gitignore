@@ -1,0 +1,6 @@
+
+*.directory
+bin/**
+build/**
+data/*.png
+dist/**
