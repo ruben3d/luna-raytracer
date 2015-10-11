@@ -98,6 +98,26 @@ public:
 		return mirror * 2 * mirror.dot(*this) - *this;
 	}
 
+	/// The current vector is assumed to be pointing towards the surface, opposite to the surface normal vector.
+	/// \param N	Surface normal.
+	/// \param n1	First medium IOR.
+	/// \param n2	Second medium IOR.
+	/// \param T	Output parameter, normalized. If the method returns false its value is not modified.
+	/// \return false if total internal reflection happens, true otherwise.
+	bool refract(const Vector& N, const double n1, const double n2, Vector& T) const
+	{
+		const double n = n1 / n2;
+		const double cosI = N.dot(*this);
+		const double sinT2 = n * n * (1.0 - cosI * cosI);
+		if (sinT2 > 1.0)
+		{
+			return false;
+		}
+		T = (*this)*n - N*(n + sqrt(1.0 - sinT2));
+		T = T.normalize();
+		return true;
+	}
+
 	//
 	// Vector operations
 	//

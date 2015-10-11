@@ -330,27 +330,13 @@ Color Raytracer::computeGlossyReflection(const Vector& V, const Point& P, const 
 	return reflection;
 }
 
-bool Raytracer::refract(const Vector& N, const Vector& I, const double n1, 	const double n2, Vector& T) const
-{
-	const double n = n1 / n2;
-	const double cosI = N.dot(I);
-	const double sinT2 = n * n * (1.0 - cosI * cosI);
-	if (sinT2 > 1.0)
-	{
-		return false;
-	}
-	T = I*n - N*(n + sqrt(1.0 - sinT2));
-	T = T.normalize();
-	return true;
-}
-
 Color Raytracer::computeRefraction(const Vector& V, const Point& P, const Vector& N,
 								   const double ior1, const double ior2, const unsigned int recursion)
 {
 	m_secondaryRaysCount++;
 
 	Vector T;
-	if (refract(N,V * -1,ior1,ior2,T))
+	if ((-V).refract(N,ior1,ior2,T))
 	{
 		Ray refractedRay(P,T);
 		double t;
