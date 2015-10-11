@@ -81,9 +81,9 @@ Eager to see the project in action? Enter the `prj/gcc` folder from the console 
 #### Dependencies
 
 The project has three library dependencies:
-* Boost - Used for multi-threading and CPU count.
-* libpng - Saving images using a helper fuction.
-* SDL - Displaying progress in the sample application.
+* Boost - Used for multi-threading and CPU count (`boost_system` and `boost_threads`).
+* libpng - Saving images using a helper fuction (`png12`).
+* SDL - Displaying progress in the sample application (`SDL`).
 
 These libraries are all available for the most common platforms (Windows, Mac and Linux). On most Linux distributions they are easy to install using the package management tool.
 
