@@ -92,6 +92,7 @@ Scene& GlossyExample::createMaterials(Scene& scene)
 	mat->setSpecularIntensity(0.5);
 	mat->setSpecularGlossiness(64);
 	mat->setIOR(1.0);
+	mat->setFresnelExponent(1.5);
 	scene.addElement(mat);
 	
 	mat = new Material("glossymirror", Color(0,0,0));
@@ -99,7 +100,7 @@ Scene& GlossyExample::createMaterials(Scene& scene)
 	mat->setSpecularIntensity(1.0);
 	mat->setSpecularGlossiness(64);
 	mat->setGlossy(true);
-	mat->setGlossyRoughness(0.4);
+	mat->setGlossyRoughness(0.3);
 	mat->setGlossySamples(8);
 	mat->setIOR(4.0);
 	scene.addElement(mat);

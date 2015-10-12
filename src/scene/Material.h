@@ -38,14 +38,14 @@ public:
 		: m_name(name), m_specularIntensity(0.5), m_specularGlossiness(16),
 		m_specularColor(Color(1.0,1.0,1.0)), m_diffuseColor(Color(0.9,0.9,0.9)),
 		m_ambientColor(Color(0.5,0.5,0.5)),
-		m_reflection(false), m_refraction(false), m_ior(1.0), m_absorption(0.0),
+		m_reflection(false), m_refraction(false), m_fresnelExponent(1.0), m_ior(1.0), m_absorption(0.0),
 		m_glossy(false), m_glossyRoughness(0.0), m_glossySamples(4), m_emission(0.0) {}
 
 	Material(const std::string& name, const Color& diffuse)
 		: m_name(name), m_specularIntensity(0.5), m_specularGlossiness(16),
 		m_specularColor(Color(1.0,1.0,1.0)), m_diffuseColor(diffuse),
 		m_ambientColor(diffuse),
-		m_reflection(false), m_refraction(false), m_ior(1.0), m_absorption(0.0),
+		m_reflection(false), m_refraction(false), m_fresnelExponent(1.0), m_ior(1.0), m_absorption(0.0),
 		m_glossy(false), m_glossyRoughness(0.0), m_glossySamples(4), m_emission(0.0) {}
 
 	void setSpecularIntensity(const double specularIntensity)
@@ -57,6 +57,7 @@ public:
 	void setAmbientColor(const Color& ambient) {m_ambientColor=ambient;}
 	void setReflection(const bool reflection) {m_reflection=reflection;}
 	void setRefraction(const bool refraction) {m_refraction=refraction;}
+	void setFresnelExponent(const double fresnelExponent) {m_fresnelExponent=fresnelExponent;}
 	void setIOR(const double ior) {m_ior=ior;}
 	void setAbsorption(const double absorption) {m_absorption=absorption;}
 	void setGlossy(const bool glossy) {m_glossy=glossy;}
@@ -72,6 +73,7 @@ public:
 	const Color& getAmbientColor() const {return m_ambientColor;}
 	bool getReflection() const {return m_reflection;}
 	bool getRefraction() const {return m_refraction;}
+	double getFresnelExponent() const {return m_fresnelExponent;}
 	double getIOR() const {return m_ior;}
 	double getAbsorption() const {return m_absorption;}
 	bool getGlossy() const {return m_glossy;}
@@ -88,6 +90,7 @@ private:
 	Color m_ambientColor;
 	bool m_reflection;
 	bool m_refraction;
+	double m_fresnelExponent;
 	double m_ior;
 	double m_absorption;
 	bool m_glossy;

@@ -187,7 +187,11 @@ Color Raytracer::traceRay(const Ray& ray, const unsigned int recursion, double& 
 
 	color += Ia * Ka * Ca;
 	color += sum;
-	const double fresnel = computeFresnelReflectance(V, N, 1.0, material->getIOR());
+	double fresnel = computeFresnelReflectance(V, N, 1.0, material->getIOR());
+	if (material->getFresnelExponent() != 1.0)
+	{
+		fresnel = pow(fresnel, material->getFresnelExponent());
+	}
 	color += Ir * fresnel *material->getSpecularIntensity() /* Ks */;
 	color += It * (1.0-fresnel) /* Kt */;
 
