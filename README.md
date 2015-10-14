@@ -73,8 +73,9 @@ The project uses a GNU Make based custom build system and some libraries for pla
 
 #### Quickstart
 
-Eager to see the project in action? Enter the `prj/gcc` folder from the console and execute this command:
+Eager to see the project in action? Enter the `prj/gcc` folder from the console and execute these two commands:
 ```
+/home/user/raytracer/prj/gcc$ ARCH=x86_64 PROFILE=release make
 /home/user/raytracer/prj/gcc$ ARCH=x86_64 PROFILE=release make bin
 ```
 
