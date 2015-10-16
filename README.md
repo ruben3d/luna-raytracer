@@ -38,7 +38,7 @@ This is a list of the features currently provided by the library:
 * Materials
   * Phong shading.
   * Glossy surfaces.
-  * Reflection.
+  * Reflection. Fresnel reflectance for dielectric materials.
   * Refraction with light absorption.
 * Cameras
   * Pinhole camera.
@@ -73,7 +73,7 @@ The project uses a GNU Make based custom build system and some libraries for pla
 
 #### Quickstart
 
-Eager to see the project in action? Enter the `prj/gcc` folder from the console and execute these two commands:
+Eager to see the project in action? Open the `prj/gcc` folder in your console and execute these two commands:
 ```
 /home/user/raytracer/prj/gcc$ ARCH=x86_64 PROFILE=release make
 /home/user/raytracer/prj/gcc$ ARCH=x86_64 PROFILE=release make bin
